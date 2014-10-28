@@ -5,7 +5,7 @@ module TwitterSearch
   def execute
 
     client   = get_tw_client
-    since_id = get_last_since_id
+    since_id = Tweet.get_last_tweet_id
 
     results = client.search(
       "やすべえ exclude:retweets",
@@ -38,12 +38,6 @@ module TwitterSearch
           config.access_token        = ENV["TW_ACCESS_TOKEN"]
           config.access_token_secret = ENV["TW_ACCESS_SECRET"]
     end
-  end
-
-  def get_last_since_id
-    id = Tweet.maximum(:id)
-    return 0 unless id
-    Tweet.find(id).tweets_id
   end
 
 end
