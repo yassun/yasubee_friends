@@ -11,18 +11,8 @@ RSpec.describe Tweet, :type => :model do
     end
 
     context "レコードが存在する場合" do
-      Tweet.create(
-                    :twitter_id  => "1",
-                    :screen_name => "screen_name",
-                    :tweets_id   => "100",
-                    :img_url     => "xxx/xxx/img_url.jpg",
-                    :text        => "example")
-      tweet = Tweet.create(
-                    :twitter_id  => "1",
-                    :screen_name => "screen_name",
-                    :tweets_id   => "999",
-                    :img_url     => "xxx/xxx/img_url.jpg",
-                    :text        => "example")
+      FactoryGirl.create(:tweet, tweets_id: "100")
+      tweet = FactoryGirl.create(:tweet, tweets_id: "999")
 
       it "TwitterIDを返すこと" do
         expect(Tweet.get_last_tweet_id).to eq tweet.tweets_id
