@@ -32,6 +32,7 @@ group :development, :test do
     gem "dotenv-rails"
     gem 'database_cleaner'
     gem 'spring-commands-rspec'
+    gem 'guard-rspec'
 end
 
 gem 'whenever', :require => false
