@@ -42,6 +42,7 @@ RSpec.configure do |config|
   # database_cleaner
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do
@@ -50,6 +51,10 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+  end
+
+  config.before(:all) do
+    FactoryGirl.reload
   end
 
 # The settings below are suggested to provide a good initial experience
