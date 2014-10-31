@@ -31,6 +31,7 @@ group :development, :test do
     gem "factory_girl_rails"
     gem "dotenv-rails"
     gem 'database_cleaner'
+    gem 'spring-commands-rspec'
 end
 
 gem 'whenever', :require => false
