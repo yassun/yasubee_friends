@@ -1,0 +1,10 @@
+<div class="col-xs-12 col-sm-6 col-md-4">
+  <div class="thumbnail">
+      <%= image_tag(tweet.img_url, class: 'img-rounded') %>
+      <div class="caption">
+        <p>
+          <%= truncate(tweet.text, length: 100) if tweet.text %>
+        </p>
+      </div>
+  </div>
+</div>
