@@ -1,5 +1,14 @@
 <h1 class="text-center" >#YasubeeFriends</h1>
 <div id="photos">
-  <%= render partial: 'tweet', collection: @tweets %>
+
+  <% itr = @tweets.each %>
+  <% loop do %>
+    <div class="row">
+    <% 3.times do %>
+      <%= render partial: 'tweet', locals: { tweet: itr.next } %>
+    <% end %>
+    </div>
+  <% end %>
+
 </div>
 
