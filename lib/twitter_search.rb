@@ -4,11 +4,13 @@ module TwitterSearch
 
   def execute
 
+    puts "TwitterSearch execute start"
+
     client   = get_tw_client
     since_id = Tweet.get_last_tweet_id
 
     results = client.search(
-      "やすべえ exclude:retweets",
+      "#グラドル自画撮り部 exclude:retweets",
       include_entities: true,
       :lang => "ja",
       :count => 20,
@@ -20,14 +22,18 @@ module TwitterSearch
       img_url = tweet[:entities][:media][0][:media_url] rescue nil
       next unless img_url
 
-      Tweet.create(
+      tweet = Tweet.create(
                     :twitter_id  => tweet[:user][:id],
                     :screen_name => tweet[:user][:screen_name],
                     :tweets_id   => tweet[:id],
                     :img_url     => img_url,
                     :text        => tweet[:text])
+
+      p tweet.to_yaml
+
     end
 
+    puts "TwitterSearch execute end"
 
   end
 
