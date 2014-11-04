@@ -10,7 +10,7 @@ module TwitterSearch
     since_id = Tweet.get_last_tweet_id
 
     results = client.search(
-      "#グラドル自画撮り部 exclude:retweets",
+      "#yasubeefriends exclude:retweets",
       include_entities: true,
       :lang => "ja",
       :count => 20,

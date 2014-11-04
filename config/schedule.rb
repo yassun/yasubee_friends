@@ -18,3 +18,10 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+
+set :output, 'log/crontab.log'
+set :environment, @environment
+every 5.minutes do
+  runner "TwitterSearch.execute"
+end
+
