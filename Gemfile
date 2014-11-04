@@ -13,12 +13,17 @@ gem 'twitter'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 
+
 group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
 
 group :development do
   gem 'spring'
+end
+
+group  :test do
+  gem 'capybara'
 end
 
 group :development, :test do
