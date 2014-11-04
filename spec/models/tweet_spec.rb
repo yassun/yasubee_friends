@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Tweet, :type => :model do
 
+  it "有効なファクトリを持つこと" do
+    expect(FactoryGirl.build(:tweet)).to be_valid
+  end
+
   describe "最大IDのTwitterIDを取得する" do
 
     context "レコードが存在しない場合" do
