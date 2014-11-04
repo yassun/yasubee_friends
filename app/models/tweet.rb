@@ -6,5 +6,9 @@ class Tweet < ActiveRecord::Base
     self.find(id).tweets_id
   end
 
+  def self.page_created_desc(page)
+    self.page(page).per(15).order("created_at DESC")
+  end
+
 end
 
