@@ -14,7 +14,7 @@ require 'rails_helper'
 RSpec.describe TweetsHelper, :type => :helper do
   describe "tweet_url" do
     it "tweetへのURLが作成される事" do
-      expect(helper.tweet_url(FactoryGirl.build(:tweet))).to eq "https://twitter.com/screen_name/status/100"
+      expect(helper.tweet_url(FactoryGirl.build(:tweet, screen_name:"screen_name", tweets_id: "100"))).to eq "https://twitter.com/screen_name/status/100"
     end
   end
 end
