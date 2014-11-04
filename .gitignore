@@ -16,3 +16,6 @@
 /tmp
 /vendor/bundle
 .env
+
+.DS_Store
+
