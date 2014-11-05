@@ -12,7 +12,6 @@ module TwitterSearch
     results = client.search(
       "#yasubeefriends exclude:retweets",
       include_entities: true,
-      :lang => "ja",
       :count => 100,
       :result_type => "recent",
       :since_id => since_id,)
